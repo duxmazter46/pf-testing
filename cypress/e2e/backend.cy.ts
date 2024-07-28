@@ -43,7 +43,7 @@ describe("Backend", () => {
     }).then((res) => {
       cy.log(JSON.stringify(res.body));
       expect(res.body).to.have.all.keys("msg", "data");
-      expect(res.body.data).to.all.keys("id", "todoText");
+      expect(res.body.data).to.have.all.keys("id", "todoText","tag","rank");
     });
   });
 

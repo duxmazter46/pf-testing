@@ -7,6 +7,7 @@ before(() => {
 });
 
 describe("Frontend", () => {
+  const range = '1'
   it("connects", () => {
     const url = Cypress.env("FRONTEND_URL");
     cy.visit(url);
@@ -16,13 +17,13 @@ describe("Frontend", () => {
     const text = new Date().getTime().toString();
     cy.visit(url);
     cy.get("[data-cy='input-text']").type(text);
+    cy.get("[data-cy='select-rank']").type(range);
     cy.get("[data-cy='submit']").click();
     cy.contains(text);
   });
 
   it("deletes todo", () => {
     const url = Cypress.env("FRONTEND_URL");
-
     const text = new Date().getTime().toString();
     cy.visit(url);
     cy.get("[data-cy='input-text']").type(text);
